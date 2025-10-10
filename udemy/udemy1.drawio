@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" version="28.2.5">
   <diagram name="Page-1" id="63AYfMRlPiR0KIU5waaP">
-    <mxGraphModel dx="793" dy="434" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="383" dy="210" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -59,66 +59,75 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-3" value="user" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="30" y="180" width="20" height="40" as="geometry" />
+          <mxGeometry x="20" y="160" width="20" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Ie8HEvDN5Q3WFzVtq-jn-5" target="Ie8HEvDN5Q3WFzVtq-jn-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-5" value="UART" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="180" width="80" height="40" as="geometry" />
+          <mxGeometry x="70" y="160" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Ie8HEvDN5Q3WFzVtq-jn-6" target="Ie8HEvDN5Q3WFzVtq-jn-11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-6" value="UART&lt;div&gt;ISR&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
-          <mxGeometry x="250" y="180" width="80" height="40" as="geometry" />
+          <mxGeometry x="240" y="160" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-10" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;UART Receive Interrupt&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="180" width="90" height="20" as="geometry" />
+          <mxGeometry x="150" y="160" width="90" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Ie8HEvDN5Q3WFzVtq-jn-11" target="Ie8HEvDN5Q3WFzVtq-jn-15">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-11" value="Input Data Queue" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="1">
-          <mxGeometry x="400" y="180" width="120" height="40" as="geometry" />
+          <mxGeometry x="390" y="160" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-12" value="Print Queue" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="1">
           <mxGeometry x="240" y="40" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-14" value="Enqueue" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="330" y="180" width="70" height="20" as="geometry" />
+          <mxGeometry x="320" y="160" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Ie8HEvDN5Q3WFzVtq-jn-15" target="Ie8HEvDN5Q3WFzVtq-jn-22">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="600" y="280" as="targetPoint" />
+            <mxPoint x="590" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-15" value="Command Handel Task" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="400" y="260" width="120" height="40" as="geometry" />
+          <mxGeometry x="390" y="240" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ie8HEvDN5Q3WFzVtq-jn-6" target="Ie8HEvDN5Q3WFzVtq-jn-15">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="360" y="240" as="sourcePoint" />
-            <mxPoint x="410" y="190" as="targetPoint" />
+            <mxPoint x="350" y="220" as="sourcePoint" />
+            <mxPoint x="400" y="170" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="290" y="280" />
+              <mxPoint x="280" y="260" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-18" value="Notification" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="310" y="260" width="70" height="20" as="geometry" />
+          <mxGeometry x="300" y="240" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-19" value="Denqueue" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="460" y="220" width="80" height="20" as="geometry" />
+          <mxGeometry x="450" y="200" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Ie8HEvDN5Q3WFzVtq-jn-22" target="Ie8HEvDN5Q3WFzVtq-jn-23">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-22" value="Format Data into Command" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="560" y="260" width="120" height="40" as="geometry" />
+          <mxGeometry x="550" y="240" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-23" value="Notifies the relevant Tasks" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="760" y="250" width="120" height="60" as="geometry" />
+          <mxGeometry x="710" y="240" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-25" value="" style="shape=link;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="40" y="320" as="sourcePoint" />
+            <mxPoint x="800" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ie8HEvDN5Q3WFzVtq-jn-26" value="&#39;\n&#39;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="210" width="35" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
