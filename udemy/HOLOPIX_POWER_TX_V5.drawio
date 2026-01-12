@@ -1,0 +1,206 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.3.0">
+  <diagram name="System Flow (WPTtx - BLDC + FreeRTOS)" id="sY34lP2o96PrE0kyIhfm">
+    <mxGraphModel dx="2799" dy="974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-60" parent="1" style="swimlane;whiteSpace=wrap;html=1;rounded=0;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;" value="Startup / main.c (Bare-metal init)" vertex="1">
+          <mxGeometry as_="geometry" height="750" width="360" x="-630" y="300" as="geometry">
+            <mxRectangle height="30" width="210" x="-630" y="300" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-63" parent="VlbnkV9MyUSQ4SVWlrll-60" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="RESET / Power-On" vertex="1">
+          <mxGeometry as_="geometry" height="50" width="300" x="30" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-64" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="HAL_Init()" vertex="1">
+          <mxGeometry as_="geometry" height="50" width="300" x="30" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-65" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="SystemClock_Config()" vertex="1">
+          <mxGeometry as_="geometry" height="50" width="300" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-66" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="MX_GPIO_Init()" vertex="1">
+          <mxGeometry as_="geometry" height="50" width="300" x="30" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-67" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="MX_TIM3_Init()  (PWM CH1..CH3)" vertex="1">
+          <mxGeometry as_="geometry" height="60" width="300" x="30" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-68" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="MX_USART1_UART_Init()  (9600 8N1)" vertex="1">
+          <mxGeometry as_="geometry" height="60" width="300" x="30" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-69" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="FRTOS_Init()" vertex="1">
+          <mxGeometry as_="geometry" height="50" width="300" x="30" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-70" parent="VlbnkV9MyUSQ4SVWlrll-60" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="while(1) { /* idle */ }" vertex="1">
+          <mxGeometry as_="geometry" height="50" width="300" x="30" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-71" parent="VlbnkV9MyUSQ4SVWlrll-60" style="shape=note;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Note: HAL_Delay() is overridden in frtos.c to use vTaskDelay() once the scheduler is running." vertex="1">
+          <mxGeometry as_="geometry" height="90" width="300" x="30" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-92" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-63" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-64" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-93" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-64" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-65" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-94" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-65" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-66" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-95" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-66" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-67" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-96" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-67" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-68" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-97" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-68" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-69" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-98" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-60" source="VlbnkV9MyUSQ4SVWlrll-69" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-70" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-61" parent="1" style="swimlane;whiteSpace=wrap;html=1;rounded=0;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;" value="FreeRTOS (frtos.c + modules)" vertex="1">
+          <mxGeometry as_="geometry" height="820" width="1300" x="10" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-72" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="FRTOS_Init(): 1) vErrorInitTask() 2) vBeepInitTask() 3) vBldcInitTask()" vertex="1">
+          <mxGeometry as_="geometry" height="90" width="460" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-73" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Create vControlTask (prio +1)" vertex="1">
+          <mxGeometry as_="geometry" height="60" width="460" x="30" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-74" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="vTaskStartScheduler()" vertex="1">
+          <mxGeometry as_="geometry" height="60" width="460" x="30" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-75" parent="VlbnkV9MyUSQ4SVWlrll-61" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Runtime (concurrent tasks + timers)" vertex="1">
+          <mxGeometry as_="geometry" height="40" width="460" x="30" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-76" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Task: vControlTask (loop) - vTaskDelay(50000 ms) (Optional: test beeps / error buzzer)" vertex="1">
+          <mxGeometry as_="geometry" height="140" width="220" x="30" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-77" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Task: vBldcControlTask (prio +2) 1) Startup countdown (4 beeps) 2) Start Soft-Start timer 3) Fast commutation loop" vertex="1">
+          <mxGeometry as_="geometry" height="160" width="220" x="270" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-78" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Task: vErrorManagerTask (prio +3) - Blocks on xSystemErrorQueue - Reacts to WARNING / CRITICAL" vertex="1">
+          <mxGeometry as_="geometry" height="150" width="220" x="30" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-79" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Timer Service / Callbacks - ShortBeep (50 ms, one-shot) - ErrorBuzzer (250 ms, auto-reload) - SoftStart (2000 ms, auto-reload)" vertex="1">
+          <mxGeometry as_="geometry" height="160" width="220" x="270" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-80" parent="VlbnkV9MyUSQ4SVWlrll-61" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Queue: xSystemErrorQueue (10 x SystemError_t)" vertex="1">
+          <mxGeometry as_="geometry" height="80" width="460" x="560" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-81" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Error Level?" vertex="1">
+          <mxGeometry as_="geometry" height="70" width="220" x="30" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-82" parent="VlbnkV9MyUSQ4SVWlrll-61" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="WARNING: call xBeepStart()" vertex="1">
+          <mxGeometry as_="geometry" height="60" width="220" x="270" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-100" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-72" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-73" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-101" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-73" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-74" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-102" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-72" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="VlbnkV9MyUSQ4SVWlrll-80" value="creates">
+          <mxGeometry as_="geometry" relative="1" as="geometry">
+            <mxPoint x="520" y="240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-103" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-72" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-77" value="creates">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-104" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-72" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-78" value="creates">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-105" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-72" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-79" value="creates">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-106" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-73" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-76" value="creates">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-107" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-74" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-75" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-108" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-78" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-81" value="on receive">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-109" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-81" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-82" value="WARNING">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-111" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-82" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-79" value="beep timer">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-123" edge="1" parent="VlbnkV9MyUSQ4SVWlrll-61" source="VlbnkV9MyUSQ4SVWlrll-77" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-79" value="starts timer">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-62" parent="1" style="swimlane;whiteSpace=wrap;html=1;rounded=0;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;" value="BLDC Driver + Hardware I/O (BLDC.c)" vertex="1">
+          <mxGeometry as_="geometry" height="820" width="420" x="1520" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="CRITICAL: - vBldcEmergencyStop() - vBldcSuspendControlTask() - xErrorBuzzerStart()" vertex="1">
+          <mxGeometry as_="geometry" height="100" width="420" x="890" y="1310" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="BLDC_Init(&amp;bldc) - set TIM prescaler/period - BLDC_Stop() - start PWM CH1..CH3" vertex="1">
+          <mxGeometry as_="geometry" height="90" width="360" x="1550" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-85" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="BLDC_motor_R(&amp;bldc) called continuously from vBldcControlTask" vertex="1">
+          <mxGeometry as_="geometry" height="60" width="360" x="1550" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Read Hall Sensors (A,B,C) BLDC_Get_Hall_State() -&gt; 3-bit state" vertex="1">
+          <mxGeometry as_="geometry" height="70" width="360" x="1550" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-87" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Hall state valid? {1,2,3,4,5,6}" vertex="1">
+          <mxGeometry as_="geometry" height="70" width="360" x="1550" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-88" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Commutation table (Right) Set PWM CCR1/2/3 and Low-side GPIO via BSRR" vertex="1">
+          <mxGeometry as_="geometry" height="90" width="360" x="1550" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-89" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Invalid state: - BLDC_Stop() - Error_Report(BLDC, CRITICAL, HALL_INVALID, state)" vertex="1">
+          <mxGeometry as_="geometry" height="90" width="360" x="1550" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="SoftStart Timer Callback (every 2000 ms) if DutyCycle &lt; TARGET:   DutyCycle += STEP else:   stop timer" vertex="1">
+          <mxGeometry as_="geometry" height="110" width="360" x="1550" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-91" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="GPIO: Buzzer Pin - ON (beep start) - OFF (short beep done) - TOGGLE (error buzzer)" vertex="1">
+          <mxGeometry as_="geometry" height="70" width="360" x="1550" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-99" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-69" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-72" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-110" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-81" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-83" value="CRITICAL">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-112" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-83" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-79" value="buzzer timer">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-113" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-77" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-84" value="called by">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-114" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-84" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-85" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-115" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-85" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-86" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-116" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-86" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-87" value="">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-117" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-87" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-88" value="YES">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-118" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-87" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-89" value="NO">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-119" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-89" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-80" value="reports error">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-120" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-79" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-90" value="timer updates DutyCycle">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-121" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-90" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-85" value="affects">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VlbnkV9MyUSQ4SVWlrll-122" edge="1" parent="1" source="VlbnkV9MyUSQ4SVWlrll-79" style="endArrow=block;html=1;rounded=0;" target="VlbnkV9MyUSQ4SVWlrll-91" value="controls">
+          <mxGeometry as_="geometry" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
